@@ -19,9 +19,12 @@ p{
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
 }
+
 .img-money{
     border-radius: 15px;
+    padding-bottom: 70px;
 }
+
 
 #calculator-style{
     background-color: rgba(248, 248, 248, 1);
