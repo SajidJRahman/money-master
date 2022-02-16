@@ -1,8 +1,61 @@
 /* font Alumni Sans */
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@700&display=swap');
 
+/* font Roboto */
+
 #first-header{
     font-family: 'Alumni Sans', sans-serif;
     font-size: 48px;
     color: rgb(67, 150, 252);
+    margin: 30px;
+}
+
+h4{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+.img-money{
+    border-radius: 15px;
+}
+
+#calculator-style{
+    background-color: rgba(248, 248, 248, 1);
+    padding: 20px;
+    padding-bottom: 44px;
+    border-radius: 15px;
+    margin-bottom: 70px;
+    /* width: 45%; */
+}
+
+.btn-blue{
+    background-color:rgba(89, 165, 255, 1);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.input-field{
+    background-color: rgba(220, 220, 220, 1);
+    color: black;
+    border: 0px;
+    border-radius: 4px;
+    padding: 10px;
+    padding-left: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#input-saving{
+    background-color: rgba(220, 220, 220, 1);
+    color: black;
+    border: 0px;
+    border-radius: 4px;
+    padding: 10px;
+    padding-left: 18px;
+    padding: 8px;
+    width: 110px;
 }
