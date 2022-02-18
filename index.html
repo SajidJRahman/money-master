@@ -36,7 +36,7 @@
                 <h4 class="text-center m-4">Income</h4>
                 <div class="d-flex justify-content-center align-items-center">
                     <p class="m-0 me-1">Income:</p>
-                    <input id="income" class="input-field" min="0" type="number" placeholder="Your Income">
+                    <input id="income" class="input-field" type="text" placeholder="Your Income">
                 </div>
                 <div>
                     <p id="notify-income" class="notify text-center"><strong>Please enter a valid number!</strong></p>
@@ -44,40 +44,40 @@
                 <h4 class="text-center m-4">Expenses</h4>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <p class="m-0 me-4">Food:</p>
-                    <input id="food-expense" class="input-field" min="0" type="number" placeholder="Food Expenses">
+                    <input id="food-expense" class="input-field" type="text" placeholder="Food Expenses">
                 </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <p class="m-0 me-4">Rent:</p>
-                    <input id="rent-expense" class="input-field" min="0" type="number" placeholder="Renting Expenses">
+                    <input id="rent-expense" class="input-field" type="text" placeholder="Renting Expenses">
                 </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <p class="m-0 me-1">Clothes:</p>
-                    <input id="clothes-expense" class="input-field" min="0" type="number"
-                        placeholder="Clothing Expenses">
+                    <input id="clothes-expense" class="input-field" type="text" placeholder="Clothing Expenses">
                 </div>
                 <div>
                     <p id="notify-expenses" class="notify text-center"><strong>Please enter a valid number!</strong></p>
                 </div>
                 <div class="text-center">
                     <button
-                        onclick="verifyInput('income', 'notify-income'); verifyInputText('total-expenses', 'notify-expenses')"
+                        onclick="verifyInput('income', 'notify-income', true); verifyInput('clothes-expense', 'notify-expenses', false)"
                         id="calculate-button" class="shadow-sm fw-bold btn btn-blue px-5 py-2" disabled>
                         Calculate
                     </button>
                 </div>
                 <div>
-                    <h4 class="text-center m-4">Total
-                        Expenses: €<span id="total-expenses">0</span></h4>
+                    <h4 class="text-center m-4">Total Expenses: €<span id="total-expenses">0</span></h4>
                     <h4 class="text-center m-4">Balance: €<span id="balance">0</span></h4>
                 </div>
 
                 <!-- saving section -->
                 <div class="d-flex justify-content-center align-items-center">
                     <p class="m-0 me-3">Save:</p>
-                    <input id="saving-input" class="text-center" min="0" type="number" placeholder="Saving">
+                    <input id="saving-input" class="text-center" type="text" placeholder="Saving">
                     <p class="m-0 mx-3">%</p>
-                    <button onclick="verifyInput('saving-input', 'notify-save')" id="saving-button"
-                        class="shadow-sm fw-bold btn btn-blue px-5 py-2" disabled>Save</button>
+                    <button onclick="verifyInput('saving-input', 'notify-save', true)" id="saving-button"
+                        class="shadow-sm fw-bold btn btn-blue px-5 py-2" disabled>
+                        Save
+                    </button>
                 </div>
                 <div>
                     <p id="notify-save" class="notify text-center"><strong>Please enter a valid number!</strong></p>

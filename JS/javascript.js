@@ -1,8 +1,8 @@
 document.getElementById('calculate-button').addEventListener('click', function () {
     // income section
-    const incomeInputField = document.getElementById('income');
-    const inputField = parseFloat(incomeInputField.value);
-    incomeInputField.value = '';
+    const inputField = document.getElementById('income');
+    const incomeInputField = parseFloat(inputField.value);
+    inputField.value = '';
 
     // expenses section
     let foodExpense = parseFloat(document.getElementById('food-expense').value);
@@ -15,39 +15,44 @@ document.getElementById('calculate-button').addEventListener('click', function (
     document.getElementById('rent-expense').value = '';
     document.getElementById('clothes-expense').value = '';
 
-    // total expense & balance section
-    const totalExpense = document.getElementById('total-expenses');
-    const totalExpenseRemainingNum = parseFloat(totalExpense.innerText);
-    const totalExpensesSum = totalExpenseRemainingNum + totalExpenses;
-    totalExpense.innerText = totalExpensesSum;
+    if (incomeInputField > 0) {
+        // total expense & balance section
+        const totalExpense = document.getElementById('total-expenses');
+        const totalExpenseRemainingNum = parseFloat(totalExpense.innerText);
+        const totalExpensesSum = totalExpenseRemainingNum + totalExpenses;
+        totalExpense.innerText = totalExpensesSum;
 
-    const totalRemaining = inputField - totalExpensesSum;
+        const totalRemaining = incomeInputField - totalExpensesSum;
 
-    const totalBalance = document.getElementById('balance');
-    const totalBalanceNum = parseFloat(totalBalance.innerText);
-    const totalBalanceSum = totalBalanceNum + totalRemaining;
-    totalBalance.innerText = totalBalanceSum;
+        const totalBalance = document.getElementById('balance');
+        const totalBalanceNum = parseFloat(totalBalance.innerText);
+        const totalBalanceSum = totalBalanceNum + totalRemaining;
+        totalBalance.innerText = totalBalanceSum + totalExpenseRemainingNum;
 
-    // saving section
-    const remainingBalance = document.getElementById('remaining-balance');
-    const remainingBalanceNum = parseFloat(remainingBalance.innerText);
-    let remainingBalanceSum = remainingBalanceNum + totalBalanceSum;
-    remainingBalance.innerText = remainingBalanceSum;
+        // saving section
+        const remainingBalance = document.getElementById('remaining-balance');
+        const remainingBalanceNum = parseFloat(remainingBalance.innerText);
+        const remainingBalanceSum = remainingBalanceNum + totalBalanceSum;
+        remainingBalance.innerText = remainingBalanceSum;
 
-    // saving calculation
-    document.getElementById('saving-button').addEventListener('click', function () {
-        const savingAmount = document.getElementById('saving-amount');
-        const savingAmountNum = parseFloat(savingAmount.innerText);
-        const savingField = parseFloat(document.getElementById('saving-input').value);
-        const totalSave = inputField * (savingField / 100);
-        const total = savingAmountNum + totalSave;
-        savingAmount.innerText = total;
-        const remain = remainingBalance.innerText - total;
-        remainingBalance.innerText = remain;
-
-        document.getElementById('saving-input').value = '';
-    })
-    document.getElementById('saving-input').value = '';
+        // saving calculation
+        document.getElementById('saving-button').addEventListener('click', function () {
+            const savingInputField = parseFloat(document.getElementById('saving-input').value);
+            const savingAmount = document.getElementById('saving-amount');
+            const savingAmountNum = parseFloat(savingAmount.innerText);
+            if (savingInputField > 0 && remainingBalance.innerText > 0) {
+                const totalSave = incomeInputField * (savingInputField / 100);
+                const total = savingAmountNum + totalSave;
+                savingAmount.innerText = total;
+                const remain = remainingBalance.innerText - total;
+                remainingBalance.innerText = remain;
+                document.getElementById('saving-input').value = '';
+            }
+            else {
+                alert("You can't save more than remaining balance!");
+            }
+        })
+    }
 })
 
 // buttton disabled for empty field
@@ -69,31 +74,30 @@ buttonDisabled('clothes-expense', 'calculate-button');
 buttonDisabled('saving-input', 'saving-button');
 
 // error message for negative-number/string
-function verifyInput(idName, idNotify) {
+function verifyInput(idName, idNotify, value) {
     const input = document.getElementById(idName).value;
     const notify = document.getElementById(idNotify);
-    if (isNaN(input)) {
-        notify.style.display = 'block';
-    }
-    else if (input <= 0) {
-        notify.style.display = 'block';
-    }
-    else if (input >= 0) {
-        notify.style.display = 'none';
-    }
-}
+    if (value == true) {
 
-// error message for negative-number/string
-function verifyInputText(inputName, inputNotify) {
-    const inputText = parseFloat(document.getElementById(inputName).innerText);
-    const notifi = document.getElementById(inputNotify);
-    if (isNaN(inputText)) {
-        notifi.style.display = "block";
+        if (isNaN(input)) {
+            notify.style.display = 'block';
+        }
+        else if (input <= 0) {
+            notify.style.display = 'block';
+        }
+        else if (input >= 0) {
+            notify.style.display = 'none';
+        }
     }
-    else if (inputText < 0) {
-        notifi.style.display = "block";
-    }
-    else if (inputText > 0) {
-        notifi.style.display = 'none';
+    else if (value == false) {
+        if (isNaN(input)) {
+            notify.style.display = 'block';
+        }
+        else if (input < 0) {
+            notify.style.display = 'block';
+        }
+        else if (input > 0) {
+            notify.style.display = 'none';
+        }
     }
 }

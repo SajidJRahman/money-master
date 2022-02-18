@@ -38,12 +38,6 @@ p{
     margin-bottom: 70px;
 }
 
-/* number input arrows style */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
 .btn-blue{
     background-color:rgba(89, 165, 255, 1);
     color: white;
