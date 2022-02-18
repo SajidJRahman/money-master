@@ -36,46 +36,63 @@
                 <h4 class="text-center m-4">Income</h4>
                 <div class="d-flex justify-content-center align-items-center">
                     <p class="m-0 me-1">Income:</p>
-                    <input class="input-field" type="text" placeholder="Your Income">
+                    <input id="income" class="input-field" min="0" type="number" placeholder="Your Income">
+                </div>
+                <div>
+                    <p id="notify-income" class="notify text-center"><strong>Please enter a valid number!</strong></p>
                 </div>
                 <h4 class="text-center m-4">Expenses</h4>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <p class="m-0 me-4">Food:</p>
-                    <input class="input-field" type="text" min="0" placeholder="Food Expenses">
+                    <input id="food-expense" class="input-field" min="0" type="number" placeholder="Food Expenses">
                 </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <p class="m-0 me-4">Rent:</p>
-                    <input class="input-field" type="text" min="0" placeholder="Renting Expenses">
+                    <input id="rent-expense" class="input-field" min="0" type="number" placeholder="Renting Expenses">
                 </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <p class="m-0 me-1">Clothes:</p>
-                    <input class="input-field" type="text" min="0" placeholder="Clothing Expenses">
-                </div>
-                <div class="text-center">
-                    <button class="shadow-sm fw-bold btn btn-blue px-5 py-2">Calculate</button>
+                    <input id="clothes-expense" class="input-field" min="0" type="number"
+                        placeholder="Clothing Expenses">
                 </div>
                 <div>
-                    <h4 class="text-center m-4">Total Expenses: 5500</h4>
-                    <h4 class="text-center m-4">Balance: 4500</h4>
+                    <p id="notify-expenses" class="notify text-center"><strong>Please enter a valid number!</strong></p>
+                </div>
+                <div class="text-center">
+                    <button
+                        onclick="verifyInput('income', 'notify-income'); verifyInputText('total-expenses', 'notify-expenses')"
+                        id="calculate-button" class="shadow-sm fw-bold btn btn-blue px-5 py-2" disabled>
+                        Calculate
+                    </button>
+                </div>
+                <div>
+                    <h4 class="text-center m-4">Total
+                        Expenses: €<span id="total-expenses">0</span></h4>
+                    <h4 class="text-center m-4">Balance: €<span id="balance">0</span></h4>
                 </div>
 
                 <!-- saving section -->
                 <div class="d-flex justify-content-center align-items-center">
                     <p class="m-0 me-3">Save:</p>
-                    <input id="input-saving" class="text-center" type="text" min="0" placeholder="Saving">
+                    <input id="saving-input" class="text-center" min="0" type="number" placeholder="Saving">
                     <p class="m-0 mx-3">%</p>
-                    <button class="shadow-sm fw-bold btn btn-blue px-5 py-2">Save</button>
+                    <button onclick="verifyInput('saving-input', 'notify-save')" id="saving-button"
+                        class="shadow-sm fw-bold btn btn-blue px-5 py-2" disabled>Save</button>
                 </div>
                 <div>
-                    <h4 class="text-center m-4">Saving Amount: 5500</h4>
-                    <h4 class="text-center m-4 mb-0">Remaining Balance: 4500</h4>
+                    <p id="notify-save" class="notify text-center"><strong>Please enter a valid number!</strong></p>
+                </div>
+                <div>
+                    <h4 class="text-center m-4">Saving Amount: €<span id="saving-amount">0</span></h4>
+                    <h4 class="text-center m-4 mb-0">Remaining Balance: €<span id="remaining-balance">0</span></h4>
                 </div>
             </div>
         </div>
     </section>
     <!-- main part end -->
 
-
+    <!-- JavaScript -->
+    <script src="JS/javascript.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

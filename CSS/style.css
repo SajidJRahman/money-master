@@ -38,6 +38,12 @@ p{
     margin-bottom: 70px;
 }
 
+/* number input arrows style */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .btn-blue{
     background-color:rgba(89, 165, 255, 1);
     color: white;
@@ -56,7 +62,7 @@ p{
     font-family: 'Roboto', sans-serif;
 }
 
-#input-saving{
+#saving-input{
     background-color: rgba(220, 220, 220, 1);
     color: black;
     border: 0px;
@@ -65,4 +71,10 @@ p{
     padding-left: 18px;
     padding: 8px;
     width: 110px;
+}
+
+/* notification style */
+.notify{
+    color: red;
+    display: none;
 }
